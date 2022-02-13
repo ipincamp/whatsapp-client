@@ -9,12 +9,14 @@ const express = require("express");
 const fs = require("fs");
 const { Client } = require("whatsapp-web.js");
 
-const sessionPATH = "./config.json";
+const saved = "./config.json";
+const { qrTries, restart, timeOut } = require("./src/utils/Config");
 
 let sessionData;
-if (fs.existsSync(sessionPATH)) {
-  sessionData = require(sessionPATH);
+if (fs.existsSync(saved)) {
+  sessionData = require(saved);
 }
+const refresh = timeOut * 1000;
 
 const client = new Client({
   puppeteer: {
@@ -22,8 +24,9 @@ const client = new Client({
       "--no-sandbox",
     ],
   },
-  qrRefreshIntervalMs: 30000,
-  qrMaxRetries: 15,
+  qrRefreshIntervalMs: refresh,
+  qrMaxRetries: qrTries,
+  restartOnAuthFail: restart,
   session: sessionData,
 });
 module.exports = client;
