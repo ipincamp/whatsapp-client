@@ -6,8 +6,7 @@
  */
 
 const { Message } = require("whatsapp-web.js");
-
-const prefix = "p";
+const { prefixs } = require("../utils/Config");
 
 module.exports = {
   name: "message",
@@ -16,7 +15,7 @@ module.exports = {
    * @param {Message} message
    */
   async execute(message) {
-    if (message.body == `${prefix}hai`) {
+    if (message.body == `${prefixs}hai`) {
       message.reply("Apa?");
     }
   },

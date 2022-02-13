@@ -9,9 +9,6 @@ const fs = require("fs");
 const { join } = require("path");
 
 module.exports = (client) => {
-  /**
-   * Events Handler
-   */
   const eventFiles = fs.readdirSync(join(__dirname, "../events")).filter((f) => f.endsWith(".js"));
 
   for (const file of eventFiles) {
