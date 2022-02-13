@@ -6,16 +6,17 @@
  */
 
 const fs = require("fs");
+const { log } = require("../utils/Logger");
 
-const sessionPATH = "./config.json";
+const saved = "./config.json";
 
 module.exports = {
   name: "authenticated",
   execute(session) {
-    fs.writeFile(sessionPATH, JSON.stringify(session), (err) => {
-      if (err) {
-        console.error(err);
-      }
-    });
+    try {
+      fs.writeFileSync(saved, JSON.stringify(session));
+    } catch (error) {
+      log.error(error);
+    }
   },
 };
