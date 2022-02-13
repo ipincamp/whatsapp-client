@@ -9,7 +9,6 @@ const express = require("express");
 const fs = require("fs");
 const { Client } = require("whatsapp-web.js");
 
-const port = process.env.PORT || 9000;
 const sessionPATH = "./config.json";
 
 let sessionData;
@@ -23,18 +22,16 @@ const client = new Client({
       "--no-sandbox",
     ],
   },
-  qrRefreshIntervalMs: 20000,
-  qrMaxRetries: 10,
+  qrRefreshIntervalMs: 30000,
+  qrMaxRetries: 15,
   session: sessionData,
 });
 module.exports = client;
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.sendStatus(200);
-});
-app.listen(port);
+app.get("/", (req, res) => res.sendStatus(200));
+app.listen(process.env.PORT);
 
 require("./src/utils/EventHandlers")(client);
 
