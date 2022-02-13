@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp Client</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-    <h2>Unofficial WhatsApp Client Application</h2>
+    <h2>whatsapp-client</h2>
+    <h3 id="deployment">Deployment</h3>
+    <p>You can choose any host that provides support for Node apps. We&#39;ll be deploying the bot to <a
+            href="https://heroku.com">Heroku</a> here.</p>
+    <p>Follow the steps below:</p>
+    <ol>
+        <li>
+            <p>Install <a href="https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli">Heroku CLI</a>
+                &amp; make sure to do <code>heroku login</code> to connect your account.</p>
+        </li>
+        <li>
+            <p>Create the <a href="https://dashboard.heroku.com/new-app">heroku app</a>. Choose the name you want while
+                it&#39;s still available.</p>
+        </li>
+        <li>
+            <p>Go to <a href="https://dashboard.heroku.com/apps">Dashboard | Heroku</a> &#8594;
+                <code>&lt;app-name&gt;</code> &#8594; Settings.<br>Scroll down to Buildpacks and add the following
+                buildpacks:<br>
+            </p>
+            <pre><code>https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/jontewks/</span>puppeteer-heroku-buildpack
+</code></pre>
+        </li>
+        <li>
+            <p>Navigate to <code>Deploy</code> &#8594; <code>Deployment method</code>. There are 3 options, choose the
+                <code>Github</code> then authenticate with your repository.
+            </p>
+        </li>
+        <li>
+            <p>On the <code>App connected to GitHub</code> select the repository to deploy. Scroll down until you find
+                the section <code>Manual deploy</code>, then click <code>Deploy Branch</code>.</p>
+        </li>
+    </ol>
+    <h3 id="authentication">Authentication</h3>
+    <p>The app is now successfully deployed. By default, the web application is running, but for
+        <code>whatsapp-client</code> it cannot run because it requires authentication with qrcode. So I&#39;m so sure
+        that this method will be safe because <code>whatsapp-client</code> will run when you ask to run.
+    </p>
+    <blockquote>
+        <p>Open your terminal and type:</p>
+        <pre><code class="lang-bash">heroku <span class="hljs-keyword">run</span><span class="bash"> bash <span class="hljs-_">-a</span> &lt;name-app&gt;</span>
+</code></pre>
+        <p>If connected, run this command to make sure that the file contents are correct. Using lowercase
+            <code>L</code>
+        </p>
+        <pre><code class="lang-bash"><span class="hljs-attribute">ls</span>
+</code></pre>
+        <p>Run app to get the QR Code to scan:</p>
+        <pre><code class="lang-bash">npm <span class="hljs-keyword">run</span><span class="bash"> start</span>
+</code></pre>
+        <p>Scan this QR code with WhatsApp Web on your phone.<br>If you get the message <code>Client is ready!</code>,
+            you&#39;re all set to go!</p>
+        <p>To stop it, just press <code>CTRL + C</code></p>
+        <p>To run it again:</p>
+        <pre><code class="lang-bash">npm <span class="hljs-keyword">run</span><span class="bash"> start</span>
+</code></pre>
+    </blockquote>
+    <h3 id="session-storage">Session storage</h3>
+    <p><code>whatsapp-client</code> will automatically save session information into a file.</p>
+    <p>If you want to be more secure, I suggest that after you finish running <code>whatsapp-client</code>, you unlink
+        the device in the WhatsApp section.</p>
+    <p>Happy Hacking!</p>
 </body>
+
 </html>
