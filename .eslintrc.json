@@ -12,12 +12,17 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "eqeqeq": "warn",
         "global-require": "off",
         "import/no-dynamic-require": "off",
         "indent": ["error", 2],
         "linebreak-style": ["error", "windows"],
+        "no-await-in-loop": "warn",
         "no-restricted-syntax": "off",
+        "no-underscore-dangle": "off",
         "no-unused-vars": "warn",
+        "no-useless-return": "off",
+        "prefer-const": "off",
         "quotes": ["error", "double"]
     }
 }
