@@ -71,4 +71,4 @@ const log = logs.createLogger({
   ],
 });
 
-exports.log = log;
+module.exports.LOG = log;

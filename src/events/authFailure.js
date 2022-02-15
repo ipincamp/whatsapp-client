@@ -5,11 +5,13 @@
  * @license Apache-2.0
  */
 
-const { log } = require("../utils/Logger");
+const { LOG } = require("../utils/Logger");
+const { MSG } = require("../utils/Messages");
 
 module.exports = {
   name: "auth_failure",
-  execute(message) {
-    log.error(message);
+  run(message) {
+    LOG.error(message);
+    LOG.info(MSG.auth.fail);
   },
 };

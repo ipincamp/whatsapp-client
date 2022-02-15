@@ -5,12 +5,12 @@
  * @license Apache-2.0
  */
 
-const { log } = require("../utils/Logger");
-const { message: [{ ready }] } = require("../utils/Config");
+const { LOG } = require("../utils/Logger");
+const { MSG } = require("../utils/Messages");
 
 module.exports = {
   name: "ready",
-  execute() {
-    log.info(ready);
+  run() {
+    LOG.info(MSG.ready);
   },
 };

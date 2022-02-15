@@ -6,13 +6,13 @@
  */
 
 const qrcode = require("qrcode-terminal");
-const { log } = require("../utils/Logger");
-const { message: [{ qrStr }] } = require("../utils/Config");
+const { LOG } = require("../utils/Logger");
+const { MSG } = require("../utils/Messages");
 
 module.exports = {
   name: "qr",
-  execute(qr) {
+  run(qr) {
     qrcode.generate(qr, { small: true });
-    log.info(qrStr);
+    LOG.info(MSG.qr);
   },
 };
