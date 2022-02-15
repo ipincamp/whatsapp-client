@@ -15,7 +15,7 @@ const messages = {
     reply: "Pa pe pa pe, salam yang bener!",
   },
   prefix: "p",
-  qr: "Scan this code, it will be regenerated in 30 seconds",
+  qr: "Scan this code, it will be regenerated in 1 minute 30 seconds",
   ready: "Client is ready!",
 };
 
