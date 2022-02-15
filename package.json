@@ -11,12 +11,13 @@
   "homepage": "https://github.com/ipincamp/whatsapp-client#readme",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint --fix --ext .js .",
     "start": "node .",
     "test": "echo \"Tests have been done before being pushed to version control\" && exit 0"
   },
   "engines": {
-    "node": ">=16"
+    "node": "16.x",
+    "npm": "8.x"
   },
   "keywords": [
     "js",
