@@ -7,7 +7,7 @@
 
 module.exports = {
   name: "name",
-  execute(params) {
+  run(params) {
     // Code
   },
 };
