@@ -19,7 +19,7 @@ const client = new Client({
   puppeteer: {
     args: ["--no-sandbox"],
   },
-  qrRefreshIntervalMs: 30000,
+  qrRefreshIntervalMs: 90000,
   restartOnAuthFail: true,
   session: sessions,
 });
