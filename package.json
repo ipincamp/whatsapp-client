@@ -16,8 +16,8 @@
     "test": "echo \"Tests have been done before being pushed to version control\" && exit 0"
   },
   "engines": {
-    "node": "16.x",
-    "npm": "8.x"
+    "node": "16.14.0",
+    "npm": "8.5.0"
   },
   "keywords": [
     "js",
