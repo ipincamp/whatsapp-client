@@ -12,7 +12,11 @@ const { MSG } = require("../utils/Messages");
 module.exports = {
   name: "qr",
   run(qr) {
-    qrcode.generate(qr, { small: true });
-    LOG.info(MSG.qr);
+    try {
+      qrcode.generate(qr, { small: true });
+      LOG.info(MSG.qr);
+    } catch (err) {
+      LOG.error(err);
+    }
   },
 };

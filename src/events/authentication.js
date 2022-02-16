@@ -18,8 +18,8 @@ module.exports = {
       fs.writeFileSync(saved, JSON.stringify(session));
 
       LOG.info(MSG.auth.success);
-    } catch (error) {
-      LOG.error(error);
+    } catch (err) {
+      LOG.error(err);
     }
   },
 };
