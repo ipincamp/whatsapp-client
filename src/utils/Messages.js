@@ -11,6 +11,10 @@ const messages = {
     success: "Authentication success!.",
   },
   disconnect: "Client logout, make a new session...",
+  logging: {
+    enabled: false,
+    disable: "Logging system are disabled!",
+  },
   message: {
     reply: "Pa pe pa pe, salam yang bener!",
   },
