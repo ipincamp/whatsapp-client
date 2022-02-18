@@ -12,18 +12,18 @@ module.exports = {
   name: "message",
   /**
    *
-   * @param {import("whatsapp-web.js").Message} message
+   * @param {import("whatsapp-web.js").Message} msg
    */
-  async run(message) {
-    if (message.body == `${MSG.prefix}`) {
-      message.reply(MSG.message.reply);
+  async run(msg) {
+    if (msg.body === MSG.prefix || (msg.body === "P")) {
+      msg.reply(MSG.message.reply);
     }
 
-    const contact = await message.getContact();
+    const name = await msg.getContact();
 
     if (MSG.logging.enabled === true) {
       try {
-        LOG.info(`${contact.number} (${contact.name ? contact.name : contact.pushname}): ${message.body}`);
+        LOG.info(`${name.number} (${name.name ? name.name : name.pushname}): ${msg.body}`);
       } catch (err) {
         LOG.error(err);
       }

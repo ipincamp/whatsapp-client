@@ -18,6 +18,9 @@ if (fs.existsSync(saved)) {
 const client = new Client({
   puppeteer: {
     args: ["--no-sandbox"],
+    /*
+    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    */
   },
   qrRefreshIntervalMs: 90000,
   restartOnAuthFail: true,

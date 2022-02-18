@@ -12,7 +12,7 @@ const messages = {
   },
   disconnect: "Client logout, make a new session...",
   logging: {
-    enabled: false,
+    enabled: true,
     disable: "Logging system are disabled!",
   },
   message: {
