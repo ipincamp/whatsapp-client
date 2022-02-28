@@ -5,13 +5,16 @@
  * @license Apache-2.0
  */
 
+const { Client } = require("whatsapp-web.js");
 const { LOG } = require("../utils/Logger");
 const { MSG } = require("../utils/Messages");
-
-module.exports = {
-  name: "auth_failure",
-  run(message) {
-    LOG.error(message);
+/**
+ *
+ * @param {Client} client
+ */
+module.exports = function (client) {
+  client.on("auth_failure", (msg) => {
+    LOG.error(msg);
     LOG.info(MSG.auth.fail);
-  },
+  });
 };
