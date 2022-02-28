@@ -19,8 +19,11 @@ const messages = {
     reply: "Pa pe pa pe, salam yang bener!",
   },
   prefix: "p",
-  qr: "Scan this code, it will be regenerated in 1 minute 30 seconds",
-  ready: "Client is ready!",
+  qr: "Scan this code, it will be regenerated in 20 seconds",
+  ready: {
+    success: "Client is ready!",
+    listen: "Listening server at port: ",
+  },
 };
 
-module.exports.MSG = messages;
+exports.MSG = messages;
