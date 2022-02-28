@@ -18,7 +18,6 @@ const client = new Client({
   },
   authStrategy: new NoAuth(),
 });
-module.exports = client;
 
 const app = express();
 const por = process.env.PORT || 8000;
