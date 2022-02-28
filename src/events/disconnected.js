@@ -5,21 +5,24 @@
  * @license Apache-2.0
  */
 
-const client = require("../..");
+const { Client } = require("whatsapp-web.js");
 const { LOG } = require("../utils/Logger");
 const { MSG } = require("../utils/Messages");
-
-module.exports = {
-  name: "disconnected",
-  run() {
-    try {
-      LOG.info(MSG.disconnect);
-
-      client.initialize();
-    } catch (err) {
-      LOG.error(err);
-
-      client.logout();
-    }
-  },
+/**
+ *
+ * @param {Client} client
+ */
+module.exports = function (client) {
+  client.on(
+    "disconnected",
+    () => {
+      try {
+        LOG.info(MSG.disconnect);
+        client.initialize();
+      } catch (err) {
+        LOG.error(err);
+        client.logout();
+      }
+    },
+  );
 };
