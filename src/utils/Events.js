@@ -5,19 +5,10 @@
  * @license Apache-2.0
  */
 
-const fs = require("fs");
-const { join } = require("path");
-
 module.exports = (client) => {
-  const eventFiles = fs.readdirSync(join(__dirname, "../events")).filter((f) => f.endsWith(".js"));
-
-  for (const file of eventFiles) {
-    const event = require(join(__dirname, "../events", `${file}`));
-
-    if (event.once) {
-      client.once(event.name, (...args) => event.run(...args));
-    } else {
-      client.on(event.name, (...args) => event.run(...args));
-    }
-  }
+  require("../events/authFailure")(client);
+  require("../events/disconnected")(client);
+  require("../events/message")(client);
+  require("../events/qr")(client);
+  require("../events/ready")(client);
 };
