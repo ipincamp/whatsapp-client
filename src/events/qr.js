@@ -6,17 +6,20 @@
  */
 
 const qrcode = require("qrcode-terminal");
+const { Client } = require("whatsapp-web.js");
 const { LOG } = require("../utils/Logger");
 const { MSG } = require("../utils/Messages");
-
-module.exports = {
-  name: "qr",
-  run(qr) {
+/**
+ *
+ * @param {Client} client
+ */
+module.exports = function (client) {
+  client.on("qr", (qr) => {
     try {
       qrcode.generate(qr, { small: true });
       LOG.info(MSG.qr);
     } catch (err) {
       LOG.error(err);
     }
-  },
+  });
 };
