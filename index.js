@@ -6,14 +6,8 @@
  */
 
 const express = require("express");
-const fs = require("fs");
-const { Client } = require("whatsapp-web.js");
-
-const saved = "./session.json";
-let sessions;
-if (fs.existsSync(saved)) {
-  sessions = require(saved);
-}
+const { Client, NoAuth } = require("whatsapp-web.js");
+const { MSG } = require("./src/utils/Messages");
 
 const client = new Client({
   puppeteer: {
@@ -22,17 +16,16 @@ const client = new Client({
     executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
     */
   },
-  qrRefreshIntervalMs: 90000,
-  restartOnAuthFail: true,
-  session: sessions,
+  authStrategy: new NoAuth(),
 });
 module.exports = client;
 
 const app = express();
+const por = process.env.PORT || 8000;
 
 app.use(express.static("public"));
 app.get("/", (req, res) => res.sendStatus(200));
-app.listen(process.env.PORT);
+app.listen(por, () => `${MSG.ready.listen}${por}`);
 
 require("./src/utils/Events")(client);
 
